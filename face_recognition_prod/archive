@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Delete every local branches except master
+git branch -a | grep -v -e remotes -e master | sed 's/^[* ] //' | xargs git branch -D
+
+# Create the zip archive
+zip -r cv_interview.zip . --exclude=*local_volumes*
